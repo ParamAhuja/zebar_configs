@@ -16,7 +16,7 @@
       "shownInTaskbar": false,
       "focused": false,
       "resizable": false,
-      "transparent": false,
+      "transparent": true,
       "includeFiles": [
         "fucking_test/**"
       ],
