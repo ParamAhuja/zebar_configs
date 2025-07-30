@@ -179,6 +179,30 @@ html {
   gap: 5px;
 }
 
+.audio {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.audio i,
+.audio span {
+  cursor: pointer;
+}
+
+.audio i:hover,
+.audio span:hover {
+  color: #ccc;
+}
+
+.audio progress {
+  height: 8px;
+  accent-color: #e57050;
+  cursor: pointer;
+  margin: 0 8px;
+  width: 70px;
+}
+
 .scrolling-text-container {
   max-width: 150px;
   overflow: hidden;
