@@ -6,7 +6,7 @@
 
 :root {
   --text-size: 12px;
-  --icon-size: 12px;
+  --icon-size: 15px;
 
   --text-color-light: rgba(0 0 0 / 95%);
   --text-color-dark: rgba(255 255 255 / 95%);
@@ -14,10 +14,10 @@
   --icon-color-light: LightSteelBlue;
   --icon-color-dark: rgba(115 130 175 / 95%);
 
-  --background-color-light: rgba(238 238 238 / 90%);
+  --background-color-light: rgba(238 238 238 / 50%);
   --background-color-dark: linear-gradient(
-    rgb(0 0 0 / 90%),
-    rgb(5 2 20 / 85%)
+    rgb(0 0 0 / 50%),
+    rgb(5 2 20 / 45%)
   );
 }
 
@@ -58,6 +58,7 @@ body {
   font-family: ui-monospace, monospace;
   font-size: var(--text-size);
   overflow: hidden;
+  background: transparent;
 }
 
 div,
@@ -73,8 +74,13 @@ body,
   height: 100%;
 }
 
+html {
+  background: transparent;
+}
+
 #root {
   border-radius: 8px;
+  backdrop-filter: blur(8px);
 }
 
 .app {
