@@ -113,7 +113,8 @@ html {
 .network,
 .memory,
 .cpu,
-.battery {
+.battery,
+.now-playing {
   margin-right: 20px;
 }
 
@@ -170,4 +171,52 @@ html {
   font-size: 7px;
   left: -8px;
   top: 3px;
+}
+
+.now-playing {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.scrolling-text-container {
+  max-width: 150px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scrolling-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.btn,
+.media-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0 4px;
+  font-size: var(--icon-size);
+  display: flex;
+  align-items: center;
+}
+
+.btn:hover,
+.media-btn:hover {
+  color: rgb(75 115 255);
+}
+
+.media-btn i {
+  margin-right: 0;
 }
