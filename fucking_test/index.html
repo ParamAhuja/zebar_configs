@@ -47,7 +47,7 @@
               Math.floor(Math.random() * 20 + 2)
             );
             setBarHeights(newHeights);
-          }, 90); // Update every 50ms for a smooth, fast animation
+          }, 100); // Slower update interval for performance (from 50ms)
 
           return () => clearInterval(interval); // Cleanup on unmount
         }, [barCount]);
@@ -64,6 +64,7 @@
           </div>
         );
       }
+      const MemoizedAudioVisualizer = React.memo(AudioVisualizer);
 
       // A component to display song title and artist.
       function NowPlayingInfo({ title, artist }) {
@@ -80,6 +81,7 @@
           </div>
         );
       }
+      const MemoizedNowPlayingInfo = React.memo(NowPlayingInfo);
 
       function App() {
         const [output, setOutput] = useState(providers.outputMap);
@@ -271,11 +273,11 @@
                     title="Mute/Unmute"
                   >
                     {getVolumeIcon(volume)}
-                  </div>
-
-                  {showVolumeSlider && (
+                    </div>
+                    
+                    {showVolumeSlider && (
                     <progress
-                      id="volume-progress"
+                    id="volume-progress"
                       value={volume}
                       max="100"
                       onMouseDown={(e) => {
@@ -315,10 +317,10 @@
               <div className="center"></div>
               
               <div className="right">
-                {activeSession?.isPlaying && <AudioVisualizer />}
+                {activeSession?.isPlaying && <MemoizedAudioVisualizer />}
                 {output.media && activeSession && (
                 <div className="now-playing">
-                  <NowPlayingInfo
+                  <MemoizedNowPlayingInfo
                     title={activeSession.title}
                     artist={activeSession.artist}
                   />
