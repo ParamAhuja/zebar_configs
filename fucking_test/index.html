@@ -50,7 +50,7 @@
               Math.floor(Math.random() * 20 + 2)
             );
             setBarHeights(newHeights);
-          }, 100); // Slower update interval for performance (from 50ms)
+          }, 120); // Slower update interval for performance (from 50ms)
 
           return () => clearInterval(interval); // Cleanup on unmount
         }, [barCount]);
