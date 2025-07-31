@@ -37,6 +37,34 @@
 
       createRoot(document.getElementById('root')).render(<App />);
 
+      // A component for the abstract audio visualizer
+      function AudioVisualizer({ barCount = 10 }) {
+        const [barHeights, setBarHeights] = useState([]);
+
+        useEffect(() => {
+          const interval = setInterval(() => {
+            const newHeights = Array.from({ length: barCount }, () =>
+              Math.floor(Math.random() * 20 + 2)
+            );
+            setBarHeights(newHeights);
+          }, 90); // Update every 50ms for a smooth, fast animation
+
+          return () => clearInterval(interval); // Cleanup on unmount
+        }, [barCount]);
+
+        return (
+          <div className="visualizer-container">
+            {barHeights.map((height, index) => (
+              <div
+                key={index}
+                className="visualizer-bar"
+                style={{ height: `${height}px` }}
+              />
+            ))}
+          </div>
+        );
+      }
+
       function App() {
         const [output, setOutput] = useState(providers.outputMap);
         const [showVolumeSlider, setShowVolumeSlider] = useState(false);
@@ -266,14 +294,14 @@
                   </span>
                 </div>
               )}
-            </div>
-
-            <div className="center"></div>
-
-            <div className="right">
+              </div>
+              
+              <div className="center"></div>
+              
+              <div className="right">
+              {activeSession?.isPlaying && <AudioVisualizer />}
               {output.media && activeSession && (
                 <div className="now-playing">
-                  <i className="nf nf-md-music_note"></i>
                   <ScrollingText
                     text={`${activeSession.title}${
                       activeSession.artist ? ' – ' + activeSession.artist : ''

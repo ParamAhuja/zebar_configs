@@ -173,6 +173,21 @@ html {
   top: 3px;
 }
 
+.visualizer-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.visualizer-bar {
+  width: 3px;
+  background-color: var(--icon-color-dark);
+  border-radius: 2px;
+  transition: height 0.05s ease-out;
+}
+
 .now-playing {
   display: flex;
   align-items: center;
