@@ -15,10 +15,7 @@
   --icon-color-dark: rgba(115 130 175 / 95%);
 
   --background-color-light: rgba(238 238 238 / 50%);
-  --background-color-dark: linear-gradient(
-    rgb(0 0 0 / 50%),
-    rgb(5 2 20 / 45%)
-  );
+  --background-color-dark: rgb(0 0 0 / 45%);
 }
 
 @media (prefers-color-scheme: light) {
@@ -80,7 +77,7 @@ html {
 
 #root {
   border-radius: 8px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
 }
 
 .app {
@@ -185,7 +182,6 @@ html {
   width: 3px;
   background-color: var(--icon-color-dark);
   border-radius: 2px;
-  transition: height 0.05s ease-out;
 }
 
 .now-playing {
