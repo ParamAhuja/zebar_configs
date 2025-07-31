@@ -323,10 +323,10 @@
               {activeSession?.isPlaying && <MemoizedAudioVisualizer />}
 
               <div className="now-playing">
-                <i className="nf nf-md-music_note"></i>
                 {/* Render content conditionally inside a persistent container to improve LCP */}
                 {output.media && activeSession ? (
                   <>
+                    <i className="nf nf-md-music_note"></i>
                     <MemoizedNowPlayingInfo
                       title={activeSession.title}
                       artist={activeSession.artist}
