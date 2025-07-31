@@ -205,7 +205,6 @@ html {
 .song-artist {
   white-space: nowrap; /* Prevent text from wrapping */
   overflow: hidden; /* Hide overflowing text */
-  text-overflow: ellipsis; /* Add '...' to truncated text */
 }
 
 .song-artist {
