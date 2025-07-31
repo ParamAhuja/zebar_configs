@@ -70,7 +70,7 @@ This is a custom widget for `zebar`status bar. It provides a frosted glass bar w
 * Make sure it says User on "select user group" otherwise makine it say that.
 
 * Advanced Settings:
-![img](resources\image.png)
-![img](resources\image2.png)
+![img](https://github.com/ParamAhuja/zebar_configs/resources/image.png)
+![img](https://github.com/ParamAhuja/zebar_configs/resources/image2.png)
 
 3. fucking_reboot
