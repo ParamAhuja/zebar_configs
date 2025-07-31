@@ -65,6 +65,22 @@
         );
       }
 
+      // A component to display song title and artist.
+      function NowPlayingInfo({ title, artist }) {
+        return (
+          <div className="now-playing-info">
+            <div className="song-title" title={title}>
+              {title}
+            </div>
+            {artist && (
+              <div className="song-artist" title={artist}>
+                {artist}
+              </div>
+            )}
+          </div>
+        );
+      }
+
       function App() {
         const [output, setOutput] = useState(providers.outputMap);
         const [showVolumeSlider, setShowVolumeSlider] = useState(false);
@@ -299,13 +315,12 @@
               <div className="center"></div>
               
               <div className="right">
-              {activeSession?.isPlaying && <AudioVisualizer />}
-              {output.media && activeSession && (
+                {activeSession?.isPlaying && <AudioVisualizer />}
+                {output.media && activeSession && (
                 <div className="now-playing">
-                  <ScrollingText
-                    text={`${activeSession.title}${
-                      activeSession.artist ? ' – ' + activeSession.artist : ''
-                    }`}
+                  <NowPlayingInfo
+                    title={activeSession.title}
+                    artist={activeSession.artist}
                   />
                   {output.media.previous && (
                     <button

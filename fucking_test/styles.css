@@ -194,6 +194,25 @@ html {
   gap: 5px;
 }
 
+.now-playing-info {
+  width: 150px; /* Fixed width for the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.song-title,
+.song-artist {
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add '...' to truncated text */
+}
+
+.song-artist {
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
 .audio {
   display: flex;
   align-items: center;
