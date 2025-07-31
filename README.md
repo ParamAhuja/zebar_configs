@@ -6,7 +6,7 @@ This is a custom widget for `zebar`status bar. It provides a frosted glass bar w
 
 *   **System Info:** CPU, Memory, and Battery status.
 *   **Audio Control:** View and control system volume with a clickable slider.
-*   **Media Player:** Displays the currently playing song (from Spotify or other sources) with a scrolling title and playback controls.
+*   **Media Player and Visualizer:** Displays the currently playing song and visualizer with playback controls.
 *   **Weather:** Shows the current temperature and a weather icon.
 *   **Customizable Appearance:** Translucent background with a blur effect and a random background image from Unsplash.
 
@@ -59,18 +59,20 @@ This is a custom widget for `zebar`status bar. It provides a frosted glass bar w
 
     - Add Program/Script, Click "Browse..." and navigate to your zebar.exe file. Select it. Example path: "C:\Program Files\Zebar\zebar.exe" (adjust if yours is different).
 
-    - Add arguments (optional): You generally won't need any arguments for Zebar's basic launch. leave empty.
+    - Add arguments (optional): leave empty.
 
-    - Start in (optional): This field is usually automatically populated with the directory of the executable, but you can manually set it to the directory where zebar.exe is located (e.g., C:\Program Files\Zebar\). leave empty.
+    - Start in (optional): leave empty.
 
 * Click "Next".
 
 * Click "Finish".
 
-* Make sure it says User on "select user group" otherwise makine it say that.
-
-* Advanced Settings:
-![img](resources\image.png)
-![img](resources\image2.png)
+* Make sure it says User on "select user group" otherwise make it say that.
 
 3. fucking_reboot
+
+* Advanced Settings:
+
+![img](https://github.com/ParamAhuja/zebar_configs/blob/main/resources/image.png)
+![img](https://github.com/ParamAhuja/zebar_configs/blob/main/resources/image2.png)
+
