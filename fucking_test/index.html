@@ -2,8 +2,11 @@
 <html lang="en"></html>
   <head>
     <meta charset="utf-8" />
-    
+
     <meta name="viewport" content_width="device-width", initial-scale="1" />
+
+    <!-- Preconnect to the font server to speed up loading -->
+    <link rel="preconnect" href="https://www.nerdfonts.com" crossorigin />
 
     <!-- Custom styles. -->
     <link rel="stylesheet" type="text/css" href="./styles.css" />
@@ -317,58 +320,65 @@
               <div className="center"></div>
               
               <div className="right">
-                {activeSession?.isPlaying && <MemoizedAudioVisualizer />}
-                {output.media && activeSession && (
-                <div className="now-playing">
-                  <MemoizedNowPlayingInfo
-                    title={activeSession.title}
-                    artist={activeSession.artist}
-                  />
-                  {output.media.previous && (
-                    <button
-                      className="btn media-btn"
-                      onClick={() => {
-                        output.media.previous({
-                          session_id: activeSession.sessionId,
-                        });
-                      }}
-                      title="Previous"
-                    >
-                      <i className="nf nf-md-skip_previous"></i>
-                    </button>
-                  )}
-                  {output.media.togglePlayPause && (
-                    <button
-                      className="btn media-btn"
-                      onClick={() => {
-                        output.media.togglePlayPause({
-                          session_id: activeSession.sessionId,
-                        });
-                      }}
-                      title="Play/Pause"
-                    >
-                      {activeSession.isPlaying ? (
-                        <i className="nf nf-md-pause"></i>
-                      ) : (
-                        <i className="nf nf-md-play"></i>
-                      )}
-                    </button>
-                  )}
-                  {output.media.next && (
-                    <button
-                      className="btn media-btn"
-                      onClick={() => {
-                        output.media.next({
-                          session_id: activeSession.sessionId,
-                        });
-                      }}
-                      title="Next"
-                    >
-                      <i className="nf nf-md-skip_next"></i>
-                    </button>
-                  )}
-                </div>
-              )}
+              {activeSession?.isPlaying && <MemoizedAudioVisualizer />}
+
+              <div className="now-playing">
+                {/* Render content conditionally inside a persistent container to improve LCP */}
+                {output.media && activeSession ? (
+                  <>
+                    <MemoizedNowPlayingInfo
+                      title={activeSession.title}
+                      artist={activeSession.artist}
+                    />
+                    {output.media.previous && (
+                      <button
+                        className="btn media-btn"
+                        onClick={() => {
+                          output.media.previous({
+                            session_id: activeSession.sessionId,
+                          });
+                        }}
+                        title="Previous"
+                      >
+                        <i className="nf nf-md-skip_previous"></i>
+                      </button>
+                    )}
+                    {output.media.togglePlayPause && (
+                      <button
+                        className="btn media-btn"
+                        onClick={() => {
+                          output.media.togglePlayPause({
+                            session_id: activeSession.sessionId,
+                          });
+                        }}
+                        title="Play/Pause"
+                      >
+                        {activeSession.isPlaying ? (
+                          <i className="nf nf-md-pause"></i>
+                        ) : (
+                          <i className="nf nf-md-play"></i>
+                        )}
+                      </button>
+                    )}
+                    {output.media.next && (
+                      <button
+                        className="btn media-btn"
+                        onClick={() => {
+                          output.media.next({
+                            session_id: activeSession.sessionId,
+                          });
+                        }}
+                        title="Next"
+                      >
+                        <i className="nf nf-md-skip_next"></i>
+                      </button>
+                    )}
+                  </>
+                ) : (
+                  // Render a placeholder to stabilize layout
+                  <div className="now-playing-info" />
+                )}
+              </div>
 
               {output.memory && (
                 <div className="memory">
